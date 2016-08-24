@@ -15,12 +15,22 @@ function selection($lista){
     return $lista;
 }
 
-
+function insertion($lista){
+    for($i = 1; $i < sizeof($lista); $i++){
+        $eleito = $lista[$i];
+        for($j = $i; $j > 0 && $eleito < $lista[$j -1]; $j--){
+            $lista[$j] = $lista[$j-1];
+            
+        }
+        $lista[$j] = $eleito;
+    }
+    return $lista;
+    
+}
 
 $lista = array(5, 3, 4, 2, 1);
 print_r($lista);
-$lista = selection($lista);
+$lista = insertion($lista);
 
 print_r($lista);
 
-?>

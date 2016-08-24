@@ -25,11 +25,21 @@ void selection(int *lista, int n){
 	}
 }
 
+void insertion(int *lista, int n){
+	int i, j, eleito;
+	for(i = 1; i < n; i++){
+		eleito = lista[i];
+		for(j = i; j > 0 && eleito < lista[j-1]; j--){
+			lista[j]= lista[j-1];
+		}
+		lista[j] = eleito;
+	}
+}
 
 int main(){
 	int lista[5] = {5, 3, 2, 1, 4};
 	print_lista(lista, 5);
-	selection(lista, 5);
+	insertion(lista, 5);
 	print_lista(lista, 5);
 
 	return 0;
